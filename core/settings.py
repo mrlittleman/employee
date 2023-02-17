@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app.apps.AppConfig'
 ]
 
 MIDDLEWARE = [
@@ -81,11 +82,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': '2IlnNHFmLaEv9HKWwenB',
-        'HOST': 'containers-us-west-26.railway.app',
-        'PORT': '5820',
+        'NAME': os.environ['PGDATABASE'],
+        'USER':os.environ['PGUSER'],
+        'PASSWORD': os.environ['PGPASSWORD'],
+        'HOST': os.environ['PGHOST'],
+        'PORT': os.environ['PGPORT'],
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'railway',
+        # 'USER': 'postgres',
+        # 'PASSWORD': '2IlnNHFmLaEv9HKWwenB',
+        # 'HOST': 'containers-us-west-26.railway.app',
+        # 'PORT': '5820',
     }
 }
 
